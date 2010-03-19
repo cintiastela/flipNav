@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
+	<title>untitled</title>
+	<style type="text/css">
+		body {
+		 text-align: center;
+		 background: #676767;
+		 font-family: helvetica;
+		}
+
+		ul, li {
+		 margin: 0; padding: 0;
+		 overflow: hidden;
+		}
+
+		ul li {
+		 float: left;
+		 list-style: none;
+		 margin-right: 1em; 
+		 position: relative; /* IE fix */
+		}
+
+		li a {
+		 color: white;
+		 text-decoration: none;
+		 float: left;
+		 font-size: 30px;
+		 background: black;
+		 padding: 10px;
+		}
+
+		li a:hover {
+		 background: #292929;
+		}
+		
+		/* if JS */
+		
+		li a span {
+			display: block;
+			background: white;
+			color: maroon;
+			padding: 10px;
+			position: relative;
+			font-weight: bold;
+		}
+		
+		li a span:first-child {
+			background: black;
+			color: white;
+		}
+	</style>
+</head>
+<body>
+     
+<ul id="nav">
+	<li><a href="#">Home</a></li>
+	<li><a href="#">About</a></li>
+	<li><a href="#">Portfolio</a></li>
+	<li><a href="#">Mission</a></li>
+	<li><a href="#">Mission 2</a></li>
+	<li><a href="#">Mission 3</a></li>
+	<li><a href="#">Contact</a></li>				
+</ul>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js" type="text/javascript"></script>	
+
+<script type="text/javascript">
+	
+	var slideNav = (function() {
+		
+		var spanHeight,
+			nav = $('#nav'),
+			lis = $('li', nav),
+			anchors = $('a', lis).css('padding', 0);
+			
+		$.each(anchors, function() {
+			var a = $(this),
+				val = a.text();
+				
+			a.html('<span>' + val + '</span> <span>' + val + '</span>')
+			 .parent('li')
+				.height(a.children('span:first').outerHeight())
+			 .end()
+			 .children('span:first')
+				.css('marginTop', 0) // strange for IE
+		});
+		
+		spanHeight = lis.eq(0).height();
+		
+		lis.hover(function() {
+			$(this).find('span:first').animate({
+				marginTop : '-' + spanHeight
+			}, { duration: 200, queue : false });
+		}, function() {
+			$(this).find('span:first').animate({
+				marginTop : 0
+			}, { duration: 200, queue: false });
+		});
+		
+	})();
+	
+</script>
+
+</body>
+</html>	
