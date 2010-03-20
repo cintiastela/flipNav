@@ -1,0 +1,46 @@
+body {
+ text-align: center;
+ background: #676767;
+ font-family: helvetica;
+}
+
+ul, li {
+ margin: 0; padding: 0;
+ overflow: hidden;
+}
+
+ul li {
+ float: left;
+ list-style: none;
+ margin-right: 1em; 
+ position: relative; /* IE fix */
+}
+
+li a {
+ color: white;
+ text-decoration: none;
+ float: left;
+ font-size: 30px;
+ background: black;
+ padding: 10px;
+}
+
+li a:hover {
+ background: #292929;
+}
+
+/* if JS */
+
+li a span {
+	display: block;
+	background: white;
+	color: maroon;
+	padding: 10px;
+	position: relative;
+	font-weight: bold;
+}
+
+li a span:first-child {
+	background: black;
+	color: white;
+}s
