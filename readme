@@ -1,0 +1,3 @@
+Simply create a navigation menu, and call flipNav(). This is a pretty simple plugin, and accepts one parameter: speed (default is 200 milliseconds). Make sure that you include the flipNav.css fil as well, in order to ensure that the effect is achieved. 
+
+$('#nav').flipNav(); 
